@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Estratégica de Contenidos | Preparatoria Colegio Skinner</title>
+    
+    <style>
+        :root {
+            /* Paleta Oficial Colegio Skinner */
+            --blue-dark: #114e90;
+            --blue-medium: #17538c;
+            --blue-light: #489bba;
+            --red-accent: #c82e29;
+            --white: #ffffff;
+            
+            /* Fondos y Estructura */
+            --bg-main: #f4f7f9;
+            --bg-card: #ffffff;
+            --bg-dark-card: #114e90;
+            --text-main: #1f2937;
+            --text-muted: #64748b;
+            --border-subtle: #e2e8f0;
+            
+            /* Tipografía Helvética con fallback */
+            --font-helvetica: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-helvetica);
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.5;
+            padding: 16px 12px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 680px; /* Mobile-first centrado */
+            margin: 0 auto;
+        }
+
+        /* ELEMENTOS INSTITUCIONALES Y DE DISEÑO */
+        .asterisk {
+            color: var(--red-accent);
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .tag-bracket {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--blue-medium);
+        }
+
+        .arrow-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 1px solid var(--blue-dark);
+            color: var(--blue-dark);
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* HEADER INSTITUCIONAL */
+        header {
+            background-color: var(--bg-card);
+            padding: 28px 20px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(17, 78, 144, 0.06);
+            border-top: 5px solid var(--blue-dark);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .profile-title-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .profile-avatar-container {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 2px solid var(--blue-light);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            background-color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-avatar-container img {
+            width: 90%;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .title-text-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 26px;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+            color: var(--blue-dark);
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .subtitle-header {
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--red-accent);
+            margin-top: 4px;
+        }
+
+        .hero-desc {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            margin-bottom: 18px;
+            line-height: 1.45;
+        }
+
+        .pills-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .pill-badge {
+            background: #f0f4f8;
+            border: 1px solid var(--border-subtle);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--blue-dark);
+        }
+
+        .pill-badge.red {
+            background: var(--red-accent);
+            color: var(--white);
+            border: none;
+        }
+
+        .pill-badge.blue {
+            background: var(--blue-dark);
+            color: var(--white);
+            border: none;
+        }
+
+        /* SECCIONES Y TITULARES */
+        .section-header {
+            margin-top: 36px;
+            margin-bottom: 16px;
+            padding: 0 4px;
+        }
+
+        .section-header .tag-bracket {
+            color: var(--red-accent);
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.5px;
+            color: var(--blue-dark);
+            margin-top: 4px;
+            text-transform: uppercase;
+        }
+
+        .section-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+
+        /* TARJETAS DE FORMATOS Y PILARES */
+        .formats-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .format-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            border-left: 4px solid var(--blue-medium);
+            position: relative;
+        }
+
+        .format-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .format-type {
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--red-accent);
+        }
+
+        .format-name {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--blue-dark);
+            margin-top: 2px;
+        }
+
+        .format-body {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* CALENDARIO Y TIMELINE */
+        .calendar-box {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 24px 20px;
+            margin-top: 16px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+        }
+
+        .month-heading {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--blue-dark);
+            margin: 20px 0 12px 0;
+            border-bottom: 2px solid var(--blue-light);
+            padding-bottom: 6px;
+        }
+
+        .month-heading:first-child {
+            margin-top: 0;
+        }
+
+        .timeline-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .timeline-card {
+            background: #ffffff;
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            transition: transform 0.2s ease;
+        }
+
+        .timeline-card:hover {
+            border-color: var(--blue-light);
+        }
+
+        .timeline-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .timeline-date {
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--blue-medium);
+        }
+
+        .timeline-tag {
+            font-size: 9.5px;
+            font-weight: 700;
+            background: #eef6f9;
+            padding: 3px 8px;
+            border-radius: 8px;
+            color: var(--blue-dark);
+            text-transform: uppercase;
+        }
+
+        .timeline-title {
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.35;
+            color: var(--text-main);
+        }
+
+        .timeline-desc {
+            font-size: 12.5px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .timeline-cta {
+            font-size: 11px;
+            color: var(--red-accent);
+            font-weight: 700;
+            margin-top: 2px;
+        }
+
+        /* NOTA ESTRATÉGICA / DISCLAIMER */
+        .disclaimer-card {
+            background: var(--blue-dark);
+            color: var(--white);
+            border-radius: 20px;
+            padding: 26px 22px;
+            margin-top: 36px;
+            margin-bottom: 24px;
+            border-bottom: 5px solid var(--red-accent);
+        }
+
+        .disclaimer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .disclaimer-title {
+            font-size: 20px;
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--white);
+            text-transform: uppercase;
+        }
+
+        .disclaimer-body p {
+            font-size: 13px;
+            color: #e2e8f0;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .disclaimer-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* INFORMACIÓN DE CONTACTO / FOOTER */
+        footer {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 24px 20px;
+            text-align: center;
+        }
+
+        footer h2 {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--blue-dark);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        footer p {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .contact-info {
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px dashed var(--border-subtle);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 11.5px;
+            font-weight: 600;
+            color: var(--blue-medium);
+        }
+
+        /* RESPONSIVE LAYOUT (TABLETS / DESKTOP) */
+        @media (min-width: 640px) {
+            body {
+                padding: 32px 16px;
+            }
+            .formats-stack {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .timeline-list {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- HEADER PRINCIPAL -->
+    <header>
+        <div class="header-top">
+            <span class="arrow-icon">&rarr;</span>
+            <span class="tag-bracket">[ ESTRATEGIA DE CONTENIDO INSTAGRAM ]</span>
+        </div>
+        
+        <div class="profile-title-wrapper">
+            <div class="profile-avatar-container">
+                <img src="https://i.ibb.co/xt600mYS/Logo-Colegio-Skinner-stroke.jpg" alt="Logo Colegio Skinner">
+            </div>
+            <div class="title-text-group">
+                <h1>Colegio Skinner</h1>
+                <div class="subtitle-header">Primera Generación de Preparatoria</div>
+            </div>
+        </div>
+
+        <p class="hero-desc">
+            Propuesta estratégica de 12 contenidos institucionales orientada a posicionar el nuevo nivel Preparatoria. Un storytelling fundamentado en la exclusividad, la estructura, el aprendizaje para ganadores y una visión global, tecnológica y moderna.
+        </p>
+        
+        <div class="pills-group">
+            <span class="pill-badge red">Lanzamiento Prep Skinner</span>
+            <span class="pill-badge blue">12 Publicaciones</span>
+            <span class="pill-badge">3 Publicaciones / Semana</span>
+        </div>
+    </header>
+
+    <!-- SECCIÓN 1: PILARES DE STORYTELLING -->
+    <div class="section-header">
+        <span class="tag-bracket">[ SECCIÓN 01 ]</span>
+        <h2 class="section-title">Pilares del Storytelling</h2>
+        <p class="section-desc">Estructura narrativa tradicional pero fresca para conectar con familias comprometidas con el futuro profesional de sus hijos:</p>
+    </div>
+
+    <div class="formats-stack">
+        <!-- PILAR 1 -->
+        <div class="format-card">
+            <div class="format-card-top">
+                <span class="format-type">Pilar 01</span>
+                <span class="asterisk">✶</span>
+            </div>
+            <div>
+                <div class="format-name">Aprendizaje para Ganadores</div>
+                <div class="format-body">Enfoque en alta exigencia académica, disciplina, certidumbre y estructura que forman a los líderes de mañana.</div>
+            </div>
+        </div>
+
+        <!-- PILAR 2 -->
+        <div class="format-card">
+            <div class="format-card-top">
+                <span class="format-type">Pilar 02</span>
+                <span class="asterisk">✶</span>
+            </div>
+            <div>
+                <div class="format-name">Visión Global & Multilingüe</div>
+                <div class="format-body">Dominio de Inglés (Certificaciones Cambridge A2-B2) y Francés (DELF), abriendo puertas a universidades del mundo.</div>
+            </div>
+        </div>
+
+        <!-- PILAR 3 -->
+        <div class="format-card">
+            <div class="format-card-top">
+                <span class="format-type">Pilar 03</span>
+                <span class="asterisk">✶</span>
+            </div>
+            <div>
+                <div class="format-name">Comunidad Entrañable</div>
+                <div class="format-body">La trayectoria y experiencia de una institución que acompaña el crecimiento de las familias y se vuelve su máxima referencia.</div>
+            </div>
+        </div>
+
+        <!-- PILAR 4 -->
+        <div class="format-card">
+            <div class="format-card-top">
+                <span class="format-type">Pilar 04</span>
+                <span class="asterisk">✶</span>
+            </div>
+            <div>
+                <div class="format-name">Conexión Tecnológica</div>
+                <div class="format-body">Aulas modernas y metodologías a la vanguardia adaptadas a las competencias laborales del entorno digital actual.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECCIÓN 2: CALENDARIO DE 12 CONTENIDOS -->
+    <div class="section-header">
+        <span class="tag-bracket">[ SECCIÓN 02 ]</span>
+        <h2 class="section-title">Calendario de 12 Contenidos</h2>
+        <p class="section-desc">Propuestas de publicaciones institucionales desarrolladas bajo formatos limpios, elegantes y persuasivos:</p>
+    </div>
+
+    <div class="calendar-box">
+        
+        <!-- MES / BLOQUE 1 -->
+        <div class="month-heading">Bloque 01 · Fundamentos & Exclusividad</div>
+        <div class="timeline-list">
+            
+            <!-- PUB 1 -->
+            <div class="timeline-card">
+                <div class="timeline-meta">
+                    <span class="timeline-date">Pub 01 · Imagen / Carrusel</span>
+                    <span class="timeline-tag">Anuncio Oficial</span>
+                </div>
+                <div class="timeline-title">Escribiendo el siguiente capítulo: Nace la Preparatoria Colegio Skinner.</div>
+                <div class="timeline-desc">Video/Carrusel de fotos elegante de las instalaciones con texto sobrio. Presenta el inicio de la primera generación de preparatoria respaldada por años de experiencia educativa.</div>
+                <div class="timeline-cta">CTA: Conoce más solicitando el plan de estudios por DM.</div>
+            </div>
+
+            <!-- PUB 2 -->
+            <div class="timeline-card">
+                <div class="timeline-meta">
+                    <span class="timeline-date">Pub 02 · Reel / Infografía</span>
+                    <span class="timeline-tag">Idiomas / Global</span>
+                </div>
+                <div class="timeline-title">El mundo no habla un solo idioma. Nuestros egresados tampoco.</div>
+                <div class="timeline-desc">Desglose de la certificación en Inglés (Cambridge KET, PET, FCE incluidos en su programa) y Francés (DELF). Un estándar de competencia internacional para un mundo globalizado.</div>
+                <div class="timeline-cta">CTA: Asegura el futuro internacional de tus hijos.</div>
+            </div>
+
+            <!-- PUB 3 -->
+            <div class="timeline-card">
+                <div class="timeline-meta">
+                    <span class="timeline-date">Pub 03 · Reel Institucional</span>
+                    <span class="timeline-tag">Storytelling Entrañable</span>
+                </div>
+                <div class="timeline-title">De las primeras letras a la visión universitaria: Un espacio entrañable.</div>
+                <div class="timeline-desc">Storytelling visual sobre el viaje del estudiante desde preescolar hasta preparatoria. Muestra el compromiso constante con las familias de Paseos de Churubusco y CDMX.</div>
+                <div class="timeline-cta">CTA: Agenda una visita personalizada a la escuela.</div>
+            </div>
+
+            <!-- PUB 4 -->
+            <div class="timeline-card">
+                <div class="timeline-meta">
+                    <span class="timeline-date">Pub 04 · Carrusel Informativo</span>
+                    <span class="timeline-tag">Estructura Academic</span>
+                </div>
+                <div class="timeline-title">3 Pilares de un Aprendizaje para Ganadores.</div>
+                <div class="timeline-desc">Explicación clara de la metodología: 1. Rigor académico, 2. Herramientas tecnológicas de vanguardia, 3. Seguridad para la competencia laboral superior.</div>
+                <div class="timeline-cta">CTA: Guarda esta publicación para evaluarlo en familia.</div>
+            </div>
+
+        </div>
+
+        <!-- MES / BLOQUE 2 -->
+        <div class="month-heading">Bloque 02 · Tecnología, Certidumbre & Futuro</div>
+        <div class="timeline-list">
+
+            <!-- PUB 5 -->
+            <div class="timeline-card">
+                <div class="timeline-meta">
+                    <span class="timeline-date">Pub 05 · Reel Corto</span>
+                    <span class="timeline-tag">Tecnología</span>
+                </div>
+                <div class="timeline-title">Aulas conectadas, mentes sin fronteras.</div>
+                <div class="timeline-desc">Recorrido dinámico enfocado en el uso pedagógico de herramientas tecnológicas avanzadas en el nivel preparatoria. Modernidad real aplicada al aprendizaje.</div>
+                <div class="timeline-cta">CTA: Escríbenos para conocer nuestro modelo educativo.</div>
+            </div>
+
+            <!-- PUB 6 -->
+            <div class="timeline-card">
+                <div class="timeline-meta">
+                    <span class="timeline-date">Pub 06 · Carrusel Tipográfico</span>
+                    <span class="timeline-tag">Testimonial / Familias</span>
+                </div>
+                <div class="timeline-title">"Invertir en la educación de nuestros hijos es la mejor decisión".</div>
+                <div class="timeline-desc">Cita relevante de padres de familia que confían en Colegio Skinner como su referencia educativa. Sobrio, elegante y con fuerte valor de prueba social.</div>
+                <div class="timeline-cta">CTA: Únete a la comunidad de familias preparadas para el futuro.</div>
+            </div>
+
+            <!-- PUB 7 -->
+            <div class="timeline-card">
+                <div class="timeline-meta">
+                    <span class="timeline-date">Pub 07 · Video Vocacional</span>
+                    <span class="timeline-tag">Preparación Universitaria</span>
+                </div>
+                <div class="timeline-title">Preparatoria Skinner: El puente directo hacia las mejores universidades.</div>
+                <div class="timeline-desc">Contenido enfocado en el perfil del egresado: jóvenes seguros, con nivel B2 de Inglés y certificación DELF en Francés, listos para la admisión universitaria superior.</div>
+                <div class="timeline-cta">CTA: Solicita informes sobre admisiones para esta primera generación.</div>
+            </div>
+
+            <!-- PUB 8 -->
+            <div class="timeline-card">
+                <div class="timeline-meta">
+                    <span class="timeline-date">Pub 08 · Imagen / Gráfica</span>
+                    <span class="timeline-tag">Exclusividad</span>
+                </div>
+                <div class="timeline-title">Cupos limitados para la Primera Generación de Preparatoria.</div>
+                <div class="timeline-desc">Comunicado exclusivo destacando la atención personalizada y los espacios estructurados para un grupo selecto de alumnos pioneros.</div>
+                <div class="timeline-cta">CTA: Inicia tu proceso de admisión hoy mismo.</div>
+            </div>
+
+        </div>
+
+        <!-- MES / BLOQUE 3 -->
+        <div class="month-heading">Bloque 03 · Certificaciones & Pertenencia</div>
+        <div class="timeline-list">
+
+            <!-- PUB 9 -->
+            <div class="timeline-card">
+                <div class="timeline-meta">
+                    <span class="timeline-date">Pub 09 · Carrusel Educativo</span>
+                    <span class="timeline-tag">Certificaciones Cambridge</span>
+                </div>
+                <div class="timeline-title">Certificaciones de Inglés incluidas: Un valor académico diferencial.</div>
+                <div class="timeline-desc">Explicación de cómo las certificaciones de Cambridge (KET, PET, FCE) están integradas en la compra del material bibliográfico sin costos sorpresa. Transparencia y rigor.</div>
+                <div class="timeline-cta">CTA: Agenda tu cita con el departamento de admisiones.</div>
+            </div>
+
+            <!-- PUB 10 -->
+            <div class="timeline-card">
+                <div class="timeline-meta">
+                    <span class="timeline-date">Pub 10 · Reel Docentes</span>
+                    <span class="timeline-tag">Experiencia Docente</span>
+                </div>
+                <div class="timeline-title">Estructura y mentores con experiencia.</div>
+                <div class="timeline-desc">Presentación del equipo académico de la Preparatoria Skinner. Profesores capacitados para desarrollar habilidades orales, escritas y pensamiento crítico en los alumnos.</div>
+                <div class="timeline-cta">CTA: Conoce nuestro plan docente en nuestra sesión informativa.</div>
+            </div>
+
+            <!-- PUB 11 -->
+            <div class="timeline-card">
+                <div class="timeline-meta">
+                    <span class="timeline-date">Pub 11 · Imagen Institucional</span>
+                    <span class="timeline-tag">Identidad Skinner</span>
+                </div>
+                <div class="timeline-title">Tradición educativa que evoluciona con el mundo.</div>
+                <div class="timeline-desc">Fotografía de alta calidad que refleja orden, disciplina y moderna infraestructura académica. Resalta los valores tradicionales combinados con mentalidad global.</div>
+                <div class="timeline-cta">CTA: Forma parte de la historia del Colegio Skinner.</div>
+            </div>
+
+            <!-- PUB 12 -->
+            <div class="timeline-card">
+                <div class="timeline-meta">
+                    <span class="timeline-date">Pub 12 · Video / Carrusel CTA</span>
+                    <span class="timeline-tag">Llamado a la Acción</span>
+                </div>
+                <div class="timeline-title">¿El futuro profesional de tus hijos está en buenas manos?</div>
+                <div class="timeline-desc">Cierre de campaña de admisiones para la primera generación. Resumen de beneficios: Bilingüismo/Trilingüismo, tecnología, estructura y un entorno exclusivo.</div>
+                <div class="timeline-cta">CTA: Llámanos al 55 5650 5931 ext. 201 o escribe a admisiones@skinner.edu.mx</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- NOTA ESTRATÉGICA -->
+    <div class="disclaimer-card">
+        <div class="disclaimer-header">
+            <span class="tag-bracket" style="color: var(--blue-light);">[ NOTA ESTRATÉGICA ]</span>
+            <span class="asterisk">✶</span>
+        </div>
+        <div class="disclaimer-title">Lineamientos Gráficos y Editoriales</div>
+        <div class="disclaimer-body">
+            <p><strong>1. Identidad Visual Estricta:</strong> Todas las piezas gráficas mantendrán los fondos blancos, azul institucional (#114e90 / #17538c) e intervenciones sobrias en rojo (#c82e29) para acentos. La tipografía será Helvética en variantes de tamaño y peso, manteniendo el texto en blanco sobre bloques de color o azul oscuro sobre fondos claros.</p>
+            <p><strong>2. Tono de Comunicación:</strong> Institucional, formal, altamente respetuoso pero cercano. Enfocado en dar certidumbre a padres de familia que buscan un entorno controlado, de alta exigencia académica y preparación técnica/global para el ingreso a la universidad.</p>
+        </div>
+    </div>
+
+    <!-- FOOTER DE CONTACTO -->
+    <footer>
+        <h2>Colegio Skinner · Preparatoria</h2>
+        <p>Aprender para la vida en un entorno global, tecnológico y estructurado.</p>
+        
+        <div class="contact-info">
+            <span> Tel. 55 5650 5931 ext. 201</span>
+            <span> admisiones@skinner.edu.mx</span>
+            <span> Río Tuxpan #72, Col. Paseos de Churubusco, Alcaldía Iztapalapa, CDMX.</span>
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>
